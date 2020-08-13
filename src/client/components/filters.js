@@ -38,7 +38,7 @@ const FiltesComponent = (props) => {
                         <div className="launch-filter-divider"></div>
                         <div>
                             <button onClick={createFilter.bind({}, constant.FILTER_NAME[2] ,'true')}>TRUE</button>
-                            <button onClick={createFilter.bind({}, constant.FILTER_NAME[2] ,'true')}>FALSE</button>
+                            <button onClick={createFilter.bind({}, constant.FILTER_NAME[2] ,'false')}>FALSE</button>
                         </div>
                     </div>
                 </div>

@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, {lazy, Suspense, useEffect, useState} from 'react';
 import FiltesComponent from './filters';
 import DisplayRocket from './display';
 import * as constant from '../utilities/constant';
 import axios from 'axios';
 import './index.scss';
+
 
 const Home = (props) => {
     const [rocketData, setData] = useState();
@@ -81,6 +82,8 @@ const Home = (props) => {
         appliedFilter('')
     }
 
+    console.log("I am updarting again!")
+
     return <div className="launch-model">
                 <div className="launch-title">
                     <h3 onClick={redirectToHomepage.bind()}>SpaceX Launch Program</h3>
@@ -96,7 +99,7 @@ const Home = (props) => {
                             <div className="filter-info-section">
                                 <DisplayRocket rocketData={rocketData}/>
                             </div>
-                        </React.Fragment>
+                            </React.Fragment>
                     }
                 </div>
             </div>

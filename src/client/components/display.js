@@ -8,10 +8,12 @@ const DisplayRocket = (props) => {
                             <img src={item.links && item.links.mission_patch_small} alt=""/>
                             <span>{item.mission_name}</span>
                             <h4>Mission Ids: #{key+1}</h4>
+                            <ul>
                             {item.mission_id && item.mission_id.length ? 
                                 <li className="mission-info-ids">
                                     {item.mission_id.map( missionData => missionData)}
                                 </li> : ""}
+                            </ul>
                             <p className="mission-info-launch">
                                 <b>Launch Year:</b>
                                 <span>{item.launch_year}</span>

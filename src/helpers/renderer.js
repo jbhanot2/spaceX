@@ -1,5 +1,4 @@
 import React from 'react';
-import Home from '../client/components/home';
 import {renderToString} from 'react-dom/server'
 import { StaticRouter } from "react-router-dom";
 import Routes from '../client/routes';
@@ -10,13 +9,16 @@ export default (req) => {
                     <Routes/>
                 </StaticRouter>);
 
-    return ` <html>
+    return `<!DOCTYPE html> 
+            <html lang="en">
                 <head>
-                <meta content="width=device-width, initial-scale=1" name="viewport" />
+                    <title>APP</title>
+                    <meta content="width=device-width, initial-scale=1" name="viewport" />
                 </head>
                 <body>
                     <div id="root">${content}</div>
                     <script defer src="bundle.js"></script>
+                    <script defer src="1.bundle.js"></script>
                     <link rel="stylesheet" href="main.css" />
                 </body>
         </html>`;

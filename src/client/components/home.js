@@ -82,8 +82,6 @@ const Home = (props) => {
         appliedFilter('')
     }
 
-    console.log("I am updarting again!")
-
     return <div className="launch-model">
                 <div className="launch-title">
                     <h3 onClick={redirectToHomepage.bind()}>SpaceX Launch Program</h3>

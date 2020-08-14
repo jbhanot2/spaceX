@@ -17,7 +17,6 @@ config = {
         path: path.resolve(__dirname, 'build')
     },
     externals: [webpackNodeExternals()],
-    mode: 'development',
 }
 
 module.exports = merge(baseConfig, config);

@@ -4,10 +4,10 @@
   "description": "Server side rendering project",
   "main": "index.js",
   "scripts": {
-    "start": "npm-run-all --parallel build:*",
-    "build:server": "nodemon --watch build --exec \"node build/bundle.js\" ",
-    "build:build-server": "webpack --config webpack.server.js --watch",
-    "build:build-client": "webpack --config webpack.client.js --watch"
+    "dev": "npm-run-all --parallel dev:*",
+    "dev:server": "nodemon --watch build --exec \"node build/bundle.js\" ",
+    "dev:build-server": "webpack --config webpack.server.js --watch",
+    "dev:build-client": "webpack --config webpack.client.js --watch"
   },
   "author": "Jatin Bhanot",
   "license": "ISC",
@@ -21,6 +21,7 @@
     "babel-preset-es2017": "6.24.1",
     "babel-preset-react": "6.24.1",
     "babel-preset-stage-0": "6.24.1",
+    "brotli-webpack-plugin": "^1.1.0",
     "compression": "1.7.0",
     "concurrently": "3.5.0",
     "express": "4.15.4",
@@ -53,6 +54,7 @@
     "node-sass": "^4.14.1",
     "sass": "^1.26.10",
     "sass-loader": "^8.0.2",
-    "style-loader": "^1.2.1"
+    "style-loader": "^1.2.1",
+    "webpack-bundle-analyzer": "^3.8.0"
   }
 }

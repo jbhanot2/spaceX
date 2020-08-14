@@ -14,6 +14,7 @@ export default (req) => {
                 <head>
                     <title>APP</title>
                     <meta content="width=device-width, initial-scale=1" name="viewport" />
+                    <meta name="Description" content="SpaceX test project for learning.">
                 </head>
                 <body>
                     <div id="root">${content}</div>

@@ -12,6 +12,10 @@ config = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'public')
     },
-    mode: 'development',
+    optimization: {
+        splitChunks: {
+            chunks: 'all'
+        }
+    }
 }
 module.exports = merge(baseConfig, config);

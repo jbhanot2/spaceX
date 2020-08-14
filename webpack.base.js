@@ -1,5 +1,5 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const BrotliPlugin = require('brotli-webpack-plugin');
 
 module.exports = {
       // tell webpack to run babel every file it run through
@@ -48,6 +48,13 @@ module.exports = {
         new MiniCssExtractPlugin({
           filename:  '[name].css',
           chunkFilename:  '[id].css' 
-       })
-      ]
+       })],
+    //    new BrotliPlugin({
+    //         asset: '[path].br[query]',
+    //         test: /\.(js|css|html|svg)$/,
+    //         threshold: 10240,
+    //         minRatio: 0.8
+    //     })
+    //   ],
+    mode: 'production',
 }

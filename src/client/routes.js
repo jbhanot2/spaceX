@@ -1,9 +1,16 @@
-import React, {Suspense, lazy} from 'react';
+// import React, {Suspense, lazy} from 'react';
 import Home from '../client/components/home';
-import {Route} from 'react-router-dom';
+import {Hello, loadData} from '../client/components/helloComponent';
 
-export default () => {
-    return <div>
-            <Route exact path={'/'} component={Home} />
-    </div>
-}
+export default [
+    {
+      loadData: loadData,
+      path: '/',
+      component: Home,
+      exact: true            
+    },
+    { loadData: loadData,
+        path: '/hello',
+        component: Hello
+    }
+]

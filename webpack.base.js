@@ -1,5 +1,6 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const BrotliPlugin = require('brotli-webpack-plugin');
+const path = require('path');
 
 module.exports = {
       // tell webpack to run babel every file it run through

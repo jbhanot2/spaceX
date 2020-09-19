@@ -5,6 +5,9 @@ import * as constant from '../utilities/constant';
 import axios from 'axios';
 import './index.scss';
 
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {fetchData} from '../actions';
 
 const Home = (props) => {
     const [rocketData, setData] = useState();
@@ -19,18 +22,20 @@ const Home = (props) => {
       else {
         url = ""
       }
-      apiCall(url)
+      // call action creator
+      props.fetchData({url: constant.SPACEX_API_CALL + url});
+    //   apiCall(url)
     }, []);
 
     const appliedFilter = (urlParam) => {
         let url = decodeURL(window.location.search);
-
-
         props.history.push(`?${urlParam}`)
 
-        // api call
-        updataLoadingStatus(true)
-        apiCall(urlParam)
+        // // api call
+        // updataLoadingStatus(true)
+
+        // call action creator
+        props.fetchData({url: constant.SPACEX_API_CALL + urlParam});
     }
 
     const apiCall = (param) => {
@@ -87,7 +92,7 @@ const Home = (props) => {
                     <h3 onClick={redirectToHomepage.bind()}>SpaceX Launch Program</h3>
                 </div>
                 <div className="launch-container-block">
-                    {isLoading ? 
+                    {!props.spaceData ? 
                         <div className="loading">
                             <div>...Loading</div>
                             <div>Please hold on! We are fetching your data from 100 nautical mile.</div>
@@ -95,7 +100,7 @@ const Home = (props) => {
                         <React.Fragment>
                             <FiltesComponent appliedFilter={appliedFilter} />
                             <div className="filter-info-section">
-                                <DisplayRocket rocketData={rocketData}/>
+                                <DisplayRocket rocketData={props.spaceData}/>
                             </div>
                             </React.Fragment>
                     }
@@ -103,4 +108,16 @@ const Home = (props) => {
             </div>
 }
 
-export default React.memo(Home);
+const mapStateToProps = (state) => {
+    return {
+        spaceData: state.space
+    }
+}
+
+const mapDispatchToProps = (dispatch, props) => {
+    return bindActionCreators({
+        fetchData
+    }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps )(Home);
